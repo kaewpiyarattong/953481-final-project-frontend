@@ -18,6 +18,12 @@
       :key="menu.id"
       :menu="menu"
     />
+        <h2>Your Suggestion</h2>
+    <Card
+        v-for="menu in $store.getters.getBookmark.suggestion"
+        :key="menu.id"
+        :menu="menu"
+    />
   </div>
 </template>
 
