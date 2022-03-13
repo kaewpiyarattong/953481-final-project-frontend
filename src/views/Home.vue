@@ -39,7 +39,7 @@
           <router-link
             class="page-link"
             :to="{ name: 'Home', query: { page: page - 1 } }"
-            v-if="page"
+            v-if="page > 1"
             >Previous</router-link
           >
         </li>

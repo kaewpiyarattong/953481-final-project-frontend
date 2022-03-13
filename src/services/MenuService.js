@@ -17,13 +17,30 @@ export default {
       query: query,
     });
   },
-  addBookmark() {
-    return apiClient.post("/add-bookmark");
+  addBookmark(user_id, menu_id) {
+    return apiClient.post("/add-bookmark",{
+      user_id:user_id,
+      menu_id:menu_id
+    });
   },
-  removeBookmark() {
-    return apiClient.post("/remove-bookmark");
+
+  removeBookmark(user_id, menu_id) {
+    return apiClient.post("/remove-bookmark",{
+      user_id:user_id, 
+      menu_id:menu_id
+    });
   },
-  getBookmark() {
-    return apiClient.post("/get-bookmark");
+
+  getBookmark(id) {
+    return apiClient.post("/get-bookmark",{
+      user_id: id
+    });
   },
+
+  searchBookmark(id, query) {
+    return apiClient.post("/search-bookmark",{
+      user_id: id,
+      query:query
+    });
+  }
 };
