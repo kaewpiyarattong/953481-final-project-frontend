@@ -1,23 +1,22 @@
 <template>
-    <div class="col-md-4 mt-2 card">
-      <router-link :to="{ name: 'MenuInfo', params:{id:menu.id} }">
-        <!-- image -->
-        <div>
-            <img 
-            class="img-fluid"
-            v-if="menu.image_name.length"
-            :src="menu.image_name"
-            
+  <div class="col-md-4 mt-2 card">
+    <router-link :to="{ name: 'MenuInfo', params: { id: menu.id } }">
+      <!-- image -->
+      <div>
+        <img
+          class="img-fluid"
+          v-if="menu.image_name.length"
+          :src="require(`../assets/FoodImages/${menu.image_name}`)"
         />
-        </div>
-        <!-- name -->
-        <div class="card-body">
-          <h5 class="card-title">
-            {{ menu.title }}
-          </h5>
-        </div>
-        </router-link>
-    </div>
+      </div>
+      <!-- name -->
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ menu.title }}
+        </h5>
+      </div>
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -25,18 +24,18 @@
 
 export default {
   name: "Card",
-  props:{
+  props: {
     menu: {
       type: Object,
       required: true,
     },
   },
-}
+};
 </script>
 
 <style scoped>
 .card {
-  background-color: #FFEFD8;
+  background-color: #ffefd8;
   color: #000000;
   margin: 20px;
   padding-bottom: 8px;
@@ -44,7 +43,7 @@ export default {
   align-items: center;
 }
 .card:hover {
-  background-color: #FEC994;
+  background-color: #fec994;
 }
 .event-card {
   padding: 20px;
