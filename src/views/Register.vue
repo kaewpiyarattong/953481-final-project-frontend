@@ -85,8 +85,8 @@ export default {
       this.message = "";
       this.successful = false;
       this.loading = true;
-      AuthService.register(user)
-      this.$router.push({ name: "Login" })
+      AuthService.register(user);
+      this.$router.push({ name: "Login" });
     },
   },
 };

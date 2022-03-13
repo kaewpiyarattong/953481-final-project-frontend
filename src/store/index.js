@@ -6,7 +6,7 @@ export default createStore({
     user: null,
     bookmarks: null,
     menu: null,
-    menus: null
+    menus: null,
   },
   getters: {
     getCurrentUser(state) {
