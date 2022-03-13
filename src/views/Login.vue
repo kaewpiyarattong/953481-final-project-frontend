@@ -21,6 +21,7 @@
           />
           <ErrorMessage name="password" class="error-feedback" />
         </div>
+        
         <button type="submit" class="btn btn-dark btn-lg btn-block">
           Sign In
         </button>
@@ -63,12 +64,12 @@ export default {
   methods: {
     handleLogin(user) {
       AuthService.login(user)
-        // .then(() => {
-        //   this.$router.push({ name: "UserList" });
-        // })
-        // .catch(() => {
-        //   this.message = "could not login";
-        // });
+        .then(() => {
+          this.$router.push({ name: "Home" });
+        })
+        .catch(() => {
+          this.message = "could not login";
+        });
     },
   },
 };

@@ -5,6 +5,8 @@ export default createStore({
     currentUser: JSON.parse(localStorage.getItem("user")),
     user: null,
     bookmarks: null,
+    menu: null,
+    menus: null
   },
   getters: {
     getCurrentUser(state) {
@@ -15,6 +17,12 @@ export default createStore({
     },
     getBookmark(state) {
       return state.bookmarks;
+    },
+    getMenu(state) {
+      return state.menu;
+    },
+    getMenus(state) {
+      return state.menus;
     },
   },
   mutations: {
@@ -27,6 +35,12 @@ export default createStore({
     setBookmark(state, value) {
       state.bookmarks = value;
     },
+    setMenu(state, value) {
+      state.menu = value;
+    },
+    setMenus(state, value) {
+      state.menus = value;
+    },
   },
   actions: {
     setCurrentUser(context, value) {
@@ -37,6 +51,12 @@ export default createStore({
     },
     setBookmark(context, value) {
       context.commit("setBookmark", value);
+    },
+    setMenu(context, value) {
+      context.commit("setMenu", value);
+    },
+    setMenus(context, value) {
+      context.commit("setMenus", value);
     },
   },
 });
