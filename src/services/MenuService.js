@@ -7,19 +7,31 @@ export default{
     getMenuById(id){
         return apiClient.get("/getMenu/" + id)
     },
-    searchByName(){
-        return apiClient.post("/search-title")
+    searchByName(query){
+        return apiClient
+        .post("/search-title",{
+            query: query})
     },
-    searchByIngredients(){
-        return apiClient.post("/search-ingredients")
+    searchByIngredients(query){
+        return apiClient
+        .post("/search-ingredients", {
+            query: query})
     },
-    addBookmark(){
-        return apiClient.post("/add-bookmark")
+    addBookmark(user_id, menu_id){
+        return apiClient
+        .post("/add-bookmark", {
+            user_id: user_id, 
+            menu_id: menu_id})
     },
-    removeBookmark(){
-        return apiClient.post("/remove-bookmark")
+    removeBookmark(user_id, menu_id){
+        return apiClient
+        .post("/remove-bookmark", {
+            user_id: user_id, 
+            menu_id: menu_id})
     },
-    getBookmark(){
-        return apiClient.post("/get-bookmark")
+    getBookmark(user_id){
+        return apiClient
+        .post("/get-bookmark",{
+            user_id: user_id})
     },
 }

@@ -9,19 +9,27 @@
         <p><strong>Ingredients: </strong> {{$store.getters.getMenu.menu[0].ingredients}}</p>
         <p><strong> Instructions: </strong> {{$store.getters.getMenu.menu[0].instructions}}</p>
     </div>
-    <button type="submit" class="btn btn-dark btn-lg btn-block">
+    <button @click="saveBookmark" type="submit" class="btn btn-dark btn-lg btn-block">
           Add to Bookmark
         </button>
 </template>
 
 <script>
-
+import MenuService from "@/services/MenuService.js"
 
 export default({
     name: "MenuInfo",
-    // data:{
-    //     menu: null,
-    // }
+    methods:{
+        saveBookmark(){
+            MenuService.addBookmark(this.$store.getters.getCurrentUser.id,this.$store.getters.getMenu.menu[0].id)
+                .then((res)=>{
+                    console.log(res);
+                })
+                .catch(()=>{
+                    console.log("could not add to bookmark")
+                })
+        }
+    }
 })
 </script>
 

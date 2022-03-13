@@ -5,6 +5,7 @@ import Login from "@/views/Login.vue";
 import MenuService from "@/services/MenuService.js"
 import store from "@/store/index";
 import MenuInfo from "@/views/MenuInfo.vue"
+import BookMark from "@/views/BookMark.vue"
 const routes = [
   {
     path: "/",
@@ -40,6 +41,18 @@ const routes = [
         })
     }
   },
+  {
+    path:"/bookMark",
+    name:"BookMark",
+    component: BookMark,
+    beforeEnter:(to)=>{
+      MenuService.getBookmark(to.params.id)
+        .then((res)=>{
+          console.log(res.data)
+          store.dispatch("setBookmark",res.data)
+        })
+    }
+  }
   
 ];
 
