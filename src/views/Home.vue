@@ -79,7 +79,7 @@ export default {
     page: {
       type: Number,
       required: true,
-    }
+    },
   },
   async created() {
     await watchEffect(() => {

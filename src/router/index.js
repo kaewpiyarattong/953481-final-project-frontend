@@ -38,23 +38,23 @@ const routes = [
       MenuService.getMenuById(to.params.id).then((res) => {
         store.dispatch("setMenu", res.data);
       });
-      MenuService.getBookmark(store.getters.getCurrentUser.id).then(res=>{
-        store.dispatch('setBookmark', res.data)
-        console.log(res.data)
-      })
+      MenuService.getBookmark(store.getters.getCurrentUser.id).then((res) => {
+        store.dispatch("setBookmark", res.data);
+        console.log(res.data);
+      });
     },
   },
   {
     path: "/bookmark",
     name: "Bookmark",
     component: Bookmark,
-    beforeEnter: ()=>{
-      MenuService.getBookmark(store.getters.getCurrentUser.id).then(res=>{
-        store.dispatch('setBookmark', res.data)
-        console.log(res.data)
-      })
-    }
-  }
+    beforeEnter: () => {
+      MenuService.getBookmark(store.getters.getCurrentUser.id).then((res) => {
+        store.dispatch("setBookmark", res.data);
+        console.log(res.data);
+      });
+    },
+  },
 ];
 
 const router = createRouter({
